@@ -9,4 +9,4 @@ export type Emoji =
   | 'shocked'
   | 'smiling'
   | 'wink'
-  | 'worried'
+  | 'worried';

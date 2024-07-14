@@ -1,6 +1,16 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterLink, RouterView } from 'vue-router';
+import HelloWorld from './components/HelloWorld.vue';
+import { provide, reactive } from 'vue';
+import type { User } from './types/User';
+import { userInjectionKey } from './InjectionKeys';
+
+const user = reactive<User>({
+  id: 1,
+  username: 'bartek',
+  settings: []
+});
+provide(userInjectionKey, user);
 </script>
 
 <template>
