@@ -4,10 +4,15 @@ import EntryEditor from '@/components/EntryEditor.vue';
 import EntryCard from '@/components/EntryCard.vue';
 import type { Entry } from '@/types/Entry';
 import { reactive } from 'vue';
-const entries = reactive<Entry[]>([])
+import { useGlobalProperties } from '@/composables/useGlobalProperties';
+const entries = reactive<Entry[]>([]);
+const { $http } = useGlobalProperties();
 const handleCreateEntry = (e: Entry) => {
   console.log(e);
   entries.push(e);
+  $http.post('https://mock.httpstatus.io/201', {
+    ...e
+  });
 };
 </script>
 
